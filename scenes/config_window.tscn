@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfxtlugi7iwho"]
+
+[ext_resource type="Theme" uid="uid://cmnsk65gs7j1y" path="res://resources/gui_theme.tres" id="1_3ason"]
+[ext_resource type="Script" path="res://scenes/config_window.gd" id="1_b0a3q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dojvi"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+
+[node name="ConfigWindow" type="Window"]
+title = "Configurations"
+initial_position = 4
+size = Vector2i(400, 200)
+unresizable = true
+theme = ExtResource("1_3ason")
+script = ExtResource("1_b0a3q")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0982291, 0.12208, 0.105361, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dojvi")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Hello world"
+
+[node name="Button" type="Button" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "asdf"
+
+[node name="Label2" type="Label" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "Hello world 2"
+
+[node name="Button2" type="Button" parent="ScrollContainer/GridContainer"]
+layout_mode = 2
+text = "asdf"
