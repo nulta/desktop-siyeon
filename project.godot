@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="desktop-siyeon"
-run/main_scene="res://scenes/character_scene.tscn"
+config/version="1.0.0"
+run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 run/max_fps=60
 run/low_processor_mode=true
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [display]
 

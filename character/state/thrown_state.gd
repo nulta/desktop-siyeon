@@ -95,3 +95,7 @@ func hit_the_ground():
 	base.play_audio(AudioHit)
 	base.reset_state()  # FIXME
 	#if power < 50.0:  # px/s
+	
+	var landed := LandedState.new()
+	landed.hit_power = power
+	base.set_state(landed)

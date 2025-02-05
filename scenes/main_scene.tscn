@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw0ctvj4axtal"]
+[gd_scene load_steps=3 format=3 uid="uid://dw0ctvj4axtal"]
 
-[ext_resource type="PackedScene" uid="uid://fyebg0hkuhux" path="res://scenes/character_scene.tscn" id="1_c5681"]
+[ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_q1ls3"]
+[ext_resource type="PackedScene" uid="uid://222auqla6a0y" path="res://character/character_base.tscn" id="2_li7ls"]
 
 [node name="MainScene" type="Node"]
+script = ExtResource("1_q1ls3")
 
-[node name="WindowCharacter" parent="." instance=ExtResource("1_c5681")]
+[node name="CharacterBase" parent="." instance=ExtResource("2_li7ls")]
+unique_name_in_owner = true
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+unique_name_in_owner = true
+transparent_bg = true
+size = Vector2i(100, 33)
+transparent = true
+item_count = 1
+item_0/text = "Exit"

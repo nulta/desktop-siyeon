@@ -1,6 +1,8 @@
 extends CanvasGroup
 class_name CharacterBase
 
+signal repositioned_on_top()
+
 
 var state: CharacterState = null
 
@@ -14,10 +16,12 @@ var state: CharacterState = null
 @onready var main_body_bone: Bone2D = %MainBodyBone
 @onready var l_arm_bone: Bone2D = %Skeleton/MainBodyBone/LArmBone
 @onready var r_arm_bone: Bone2D = %Skeleton/MainBodyBone/RArmBone
+@onready var r_arm_node: NodeSwitcher = %RArm
 @onready var _skeleton: Skeleton2D = %Skeleton
 @onready var _eye_marker: Node2D = %EyeMarker
 @onready var _face_bone: Bone2D = %FaceBone
 @onready var _pickup_area: Polygon2D = %PickupArea
+@onready var _display_area: Polygon2D = %DisplayArea
 @onready var _audio_player: AudioStreamPlayer = $AudioPlayer
 @onready var audio_grab_long: AudioStreamPlayer = $AudioGrabLong
 
@@ -39,8 +43,8 @@ func play_audio(audio: AudioStream):
 func set_window_clip(use_clipping: bool):
 	var has_clipping_set := not get_window().mouse_passthrough_polygon.is_empty()
 	if use_clipping and not has_clipping_set:
-		var new_polygon := _pickup_area.polygon
-		new_polygon = Transform2D(0, _pickup_area.global_position) * new_polygon
+		var new_polygon := _display_area.polygon
+		new_polygon = Transform2D(0, _display_area.global_position) * new_polygon
 		get_window().mouse_passthrough_polygon = new_polygon
 	elif has_clipping_set:
 		get_window().mouse_passthrough_polygon = []
@@ -69,6 +73,10 @@ func is_mouse_in_polygon(polygon: Polygon2D) -> bool:
 
 func reset_stare_point():
 	stare_point = _eye_marker.global_position + Vector2.LEFT
+
+func reposition_window_on_top():
+	get_window().always_on_top = true
+	repositioned_on_top.emit()
 
 
 func _ready():
