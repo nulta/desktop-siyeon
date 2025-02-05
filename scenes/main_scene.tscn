@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw0ctvj4axtal"]
+[gd_scene load_steps=4 format=3 uid="uid://dw0ctvj4axtal"]
 
 [ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_q1ls3"]
 [ext_resource type="PackedScene" uid="uid://222auqla6a0y" path="res://character/character_base.tscn" id="2_li7ls"]
+[ext_resource type="PackedScene" uid="uid://c4siu12x7ibhg" path="res://scenes/info_window.tscn" id="3_ank5q"]
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_q1ls3")
@@ -12,7 +13,18 @@ unique_name_in_owner = true
 [node name="PopupMenu" type="PopupMenu" parent="."]
 unique_name_in_owner = true
 transparent_bg = true
-size = Vector2i(100, 33)
+size = Vector2i(130, 62)
 transparent = true
-item_count = 1
-item_0/text = "Exit"
+item_count = 3
+item_0/text = "종료"
+item_1/id = 1
+item_1/disabled = true
+item_1/separator = true
+item_2/text = "정보..."
+item_2/id = 2
+
+[node name="InfoWindow" parent="." instance=ExtResource("3_ank5q")]
+unique_name_in_owner = true
+visible = false
+transient = true
+popup_window = true

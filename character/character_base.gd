@@ -22,8 +22,9 @@ var state: CharacterState = null
 @onready var _face_bone: Bone2D = %FaceBone
 @onready var _pickup_area: Polygon2D = %PickupArea
 @onready var _display_area: Polygon2D = %DisplayArea
-@onready var _audio_player: AudioStreamPlayer = $AudioPlayer
-@onready var audio_grab_long: AudioStreamPlayer = $AudioGrabLong
+@onready var _audio_player_1: AudioStreamPlayer = %AudioPlayer1
+@onready var _audio_player_2: AudioStreamPlayer = %AudioPlayer2
+@onready var audio_grab_long: AudioStreamPlayer = %AudioGrabLong
 
 
 func set_state(new_state: CharacterState):
@@ -37,8 +38,12 @@ func reset_state():
 	set_state(IdleState.new())
 
 func play_audio(audio: AudioStream):
-	_audio_player.stream = audio
-	_audio_player.play()
+	if not _audio_player_1.playing:
+		_audio_player_1.stream = audio
+		_audio_player_1.play()
+	else:
+		_audio_player_2.stream = audio
+		_audio_player_2.play()
 
 func set_window_clip(use_clipping: bool):
 	var has_clipping_set := not get_window().mouse_passthrough_polygon.is_empty()

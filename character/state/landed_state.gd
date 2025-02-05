@@ -1,6 +1,8 @@
 extends CharacterState
 class_name LandedState
 
+const AudioBell = preload("res://assets/bell.mp3")
+
 var hit_power := 0.0
 var is_recovering := false
 
@@ -14,7 +16,11 @@ func on_ready():
 	base.set_big_window(true)
 
 	time_before_recover = clamp(remap(hit_power, 1500, 5000, 0.3, 4), 0.15, 5)
-	anim_speed = clamp(remap(hit_power, 1000, 5000, 1.5, 0.75), 0.75, 1.5)
+	anim_speed = clamp(remap(hit_power, 1000, 5000, 1.75, 0.75), 0.75, 1.75)
+	
+	if hit_power >= 3500:
+		await base.get_tree().create_timer(0.4).timeout
+		base.play_audio(AudioBell)
 
 func on_process(_delta: float):
 	if not is_recovering and time_elapsed > time_before_recover:

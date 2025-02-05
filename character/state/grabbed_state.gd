@@ -34,7 +34,6 @@ func on_process(delta: float):
 
 func on_end():
 	base.audio_grab_long.stop()
-	base.play_audio(AudioGrabEnd)
 
 func start_struggle():
 	if is_struggling: return
@@ -46,6 +45,7 @@ func start_struggle():
 
 func stop_holding(last_velocity: Vector2):
 	if last_velocity.length() < 500.0:  # px/s
+		base.play_audio(AudioGrabEnd)
 		base.reset_state()
 	else:
 		throw(last_velocity)

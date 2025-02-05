@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="desktop-siyeon"
-config/version="1.0.0"
+config/description="Desktop Siyeon"
+config/version="1.0.0.0"
 run/main_scene="res://scenes/main_scene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 run/max_fps=60

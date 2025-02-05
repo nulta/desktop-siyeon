@@ -3,6 +3,7 @@ extends Node
 func _ready() -> void:
 	%PopupMenu.index_pressed.connect(func(id: int):
 		if id == 0: get_tree().quit()
+		elif id == 2: %InfoWindow.popup()
 	)
 
 func _process(_delta: float) -> void:

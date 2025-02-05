@@ -44,7 +44,9 @@ func on_process(delta: float):
 
 	# Catch!
 	if base.is_just_grabbed():
-		base.set_state(GrabbedState.new())
+		var grabbed := GrabbedState.new()
+		base.set_state(grabbed)
+		grabbed.start_struggle()
 		return
 
 	# Velocity and Gravity and Rotation
