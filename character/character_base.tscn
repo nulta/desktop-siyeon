@@ -2396,7 +2396,6 @@ region_rect = Rect2(181, 49, 91, 94)
 show_behind_parent = true
 z_index = -2
 position = Vector2(-21, -29)
-scale = Vector2(1, 1)
 texture = ExtResource("1_26p6s")
 centered = false
 offset = Vector2(-12, -3)
@@ -2461,7 +2460,6 @@ region_rect = Rect2(496, 690, 52, 39)
 [node name="RSideHair" type="Sprite2D" parent="MainBody/Face"]
 z_index = 1
 position = Vector2(23, -31)
-scale = Vector2(1, 1)
 texture = ExtResource("1_26p6s")
 centered = false
 offset = Vector2(-10, -3)
@@ -2471,7 +2469,6 @@ region_rect = Rect2(836, 94, 21, 72)
 [node name="Skirt" type="Sprite2D" parent="MainBody"]
 show_behind_parent = true
 position = Vector2(0, 25)
-rotation = -0.000628773
 scale = Vector2(0.999828, 0.999828)
 texture = ExtResource("1_26p6s")
 centered = false

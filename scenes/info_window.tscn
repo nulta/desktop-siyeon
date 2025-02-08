@@ -36,7 +36,7 @@ theme_override_colors/default_color = Color(0.894922, 0.894922, 0.894922, 1)
 theme_override_constants/line_separation = 4
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "[font_size=32][color=4caa68]바탕화면 시연이[/color][/font_size] [color=5d9575]v1.0.0[/color]
+text = "[font_size=32][color=4caa68]바탕화면 시연이[/color][/font_size] [color=5d9575]v1.0.1[/color]
 경북대학교 현대시각문화연구회 (@knu_sos)도 확인해보세요!
 
 [color=888]Made by nulta with <3
